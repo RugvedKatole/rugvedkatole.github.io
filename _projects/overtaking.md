@@ -10,11 +10,7 @@ The project is dedicated to formulating a sophisticated motion planner tailored 
 
 Despite comprehensive studies on collision avoidance in both dynamic and static contexts, the persisting challenge pertains to effectively predicting uncertainties inherent in human-driven environments. The project, therefore, delves into diverse models, ranging from probabilistic and data-driven to game-theoretic approaches. Special attention is accorded to forward and backward reachability analyses, pivotal in enabling AVs to anticipate and plan paths efficiently.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/video/Overtaking.gif" title="Overtaking" width=1920 height=1080 class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+<iframe width="720" height="480" src="https://www.youtube.com/embed/Z6wKYn-ia1k" title="Overtaking" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <div class="caption">
     Overtaking a lead vehicle using model predictive control
 </div>
@@ -23,11 +19,7 @@ The overarching goal is the meticulous design of a motion planner engineered for
 
 A notable facet of innovation within the project lies in the strategic infusion of safety monitors into the MPC planner. This strategic integration aims to address abrupt alterations in the behavior of surrounding vehicles, consequently enhancing path optimization in intricate scenarios. The accompanying figure illustrates scenarios where the AV undertakes overtaking maneuvers, considering the potential behaviors of surrounding vehicles.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/video/Abort_Overtaking.gif" title="Overtaking" width=1920 height=1080 class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+<iframe width="720" height="480" src="https://www.youtube.com/embed/ymxnOam2KLc" title="Abort Overtaking" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <div class="caption">
     Aborting Overtaking maneuver on realising a potential danger(virtual as of now) and merging back into lane.
 </div>
