@@ -7,11 +7,11 @@ importance: 3
 category: work
 related_publications: AIM2023
 ---
+In this project, we work on frameworks and algorithms specifically tailored for intersections where installing traffic signals or any other infrastructure is redundant due to low traffic density ($$\leq$$ 500 PCUs/hr/lane). The idea is to enable fully autonomous vehicles to navigate through intersections without relying on any infrastructure or communication protocols.
+
 According to the Ministry of Road Transport and Highways (MORTH) in India, there were 150,785 road traffic fatalities in 2019, with an average of 413 deaths per day. Autonomous Intersection Management (AIM) is an innovative concept in transportation engineering that aims to improve traffic flow and safety at intersections by using connected autonomous vehicles and communication technologies.
 
 In many towns and cities, uncontrolled intersections lacking proper infrastructure are common, particularly in areas with low traffic density. The absence of infrastructure can cause traffic flow disruptions, leading to safety issues. To mitigate these problems, the installation of the required infrastructure is imperative. As autonomous vehicles become more accessible, it is possible that intersections will be managed autonomously through a command center in the near future. Nevertheless, even with technological advancements, some infrastructure, such as a traditional traffic signal or a command center, will still be necessary for uncontrolled intersections. However, from an economic standpoint, building such infrastructure may come with exorbitant costs that may not justify its utility.  
-
-In this project, we work on frameworks and algorithms specifically tailored for intersections where installing traffic signals or any other infrastructure is redundant due to low traffic density ($$\leq$$ 500 PCUs/hr/lane). The idea is to enable fully autonomous vehicles to navigate through intersections without relying on any infrastructure or communication protocols.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
