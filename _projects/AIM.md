@@ -39,6 +39,6 @@ Currently, this is achieved by building a graph using a harmony matrix (a matrix
     A low cost framework for unanimous decision making on unsignalized intersection.
 </div>
 
-The current work supports fully autonomous environments. We are exploring future directions to include the human driven vehicles as well as pedestrians. One way to approach this is through [topological braids](https://arxiv.org/abs/2004.05205) another one is through non-cooperative game theory. The core idea is to interpret the vehicle or driver intention through direction indicators or vehicle trajectory. This inference from sensors aids in decision making for safely navigating the intersection.  
+The current work supports fully autonomous environments. We are exploring future directions to include the human driven vehicles as well as pedestrians. One way to approach this is through [topological braids](https://arxiv.org/abs/2004.05205) another one is through non-cooperative game theory among many others. The core idea is to interpret the vehicle or driver intention through direction indicators or vehicle trajectory. This inference from sensors aids in decision making for safely navigating the intersection.  
 
 Check out our paper on [Arxiv](https://arxiv.org/abs/2311.17681)
