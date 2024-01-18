@@ -2,9 +2,10 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Materials for courses you taught. Replace this text with your description.
+description: 
 nav: true
 nav_order: 5
 ---
 
+[SC627-Motion Planning & Coordination of Autonomous Vehicles](https://github.com/RugvedKatole/SC627-Motion-planning)
 
