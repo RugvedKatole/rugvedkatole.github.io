@@ -6,24 +6,29 @@ img: assets/img/publication_preview/overtaking.png
 importance: 1
 category: work
 ---
-The project is dedicated to formulating a sophisticated motion planner tailored for autonomous vehicles (AVs) navigating dynamic environments, encompassing dynamic obstacles and nuanced human behavior. A primary objective of this research is the development of safety-assuring planners, controllers, and monitors, crucial components in fortifying the decision-making processes of AVs amidst evolving scenarios.
 
-Despite comprehensive studies on collision avoidance in both dynamic and static contexts, the persisting challenge pertains to effectively predicting uncertainties inherent in human-driven environments. The project, therefore, delves into diverse models, ranging from probabilistic and data-driven to game-theoretic approaches. Special attention is accorded to forward and backward reachability analyses, pivotal in enabling AVs to anticipate and plan paths efficiently.
+Autonomous vehicles (AVs) operating in dynamic environments must accommodate dynamic obstacles and human behavior(pedestrians, human-driven vehicles, etc.) and constantly need to make decisions concerning safety. This motivates the research in safety assuring planners, controllers, and safety monitors. Dynamic and static collision avoidance is very well studied in the literature, but the effort to predict uncertainties in a human-driven environment continues. 
+
+Predicting human behavior is a crucial step that allows AVs to plan more efficient and safe paths. Human behaviors can be estimated using probabilistic, data-driven, and game-theoretic models. A common approach is to use forward reachability analysis or backward reachability analysis. Forward reachability analysis computes a set of unsafe states over a time horizon, and the planner must avoid them. This indeed guarantees safety, but its over-conservative nature limits complex maneuvers such as lane changing, overtaking, and merging. In contrast, backward reachability analysis generates a set of states that lead to unsafe states. i.e., a set of states from which no controller can avoid getting into an unsafe set. Backward reachability is less conservative because it assumes closed-loop disturbances during computation, i.e., the robot can always react to a human. Recent works further reduce this conservatism by introducing confidence awareness. Conservatism increases as humans deviate from behavior estimated through the general sum interaction model these predictive models are usually used with switching control which drives the robot toward safety whenever it is near the safety violation boundary. A recent work infuses the safety monitor into a model predictive control (MPC) planner for lane change and merging.
+
+**The aim** is to design a motion planner to overtake a lead vehicle by infusing safety monitors. Common overtaking approaches include artificial potential fields, graph-based planners, optimal control, and MPC. Safety is often incentivized through objective functions but not enforced as a hard constraint. MPC approaches are favored because of their ability to handle constraints systematically. Non-linear MPC can successfully overtake the lead vehicle and accommodate the constraints of the surrounding and oncoming vehicles given the leading or surrounding vehicle doesn't execute "extreme" maneuvers. In the event of sudden changes in the behavior of surrounding vehicles, MPC might not guarantee a safe path or could even fail to optimize as the optimization in MPC is very sensitive to initial conditions. But an MPC with a safety monitor infused might be able to tackle it.
 
 <iframe width="720" height="480" src="https://www.youtube.com/embed/Z6wKYn-ia1k" title="Overtaking" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <div class="caption">
     Overtaking a lead vehicle using model predictive control
 </div>
 
-The overarching goal is the meticulous design of a motion planner engineered for overtaking lead vehicles, complemented by the integration of safety monitors. Diverse overtaking strategies, encompassing artificial potential fields, graph-based planners, optimal control, and Model Predictive Control (MPC), undergo meticulous consideration. Notably, the project discerns that while safety considerations are often incentivized, they are not consistently enforced, rendering MPC particularly appealing for its systematic handling of constraints.
-
-A notable facet of innovation within the project lies in the strategic infusion of safety monitors into the MPC planner. This strategic integration aims to address abrupt alterations in the behavior of surrounding vehicles, consequently enhancing path optimization in intricate scenarios. The accompanying figure illustrates scenarios where the AV undertakes overtaking maneuvers, considering the potential behaviors of surrounding vehicles.
+In case of an unsafe overtaking maneuver, the ego vehicle needs to decide to abort the maneuver and return to safety or continue. An overtaking maneuver can only be aborted once started, as the ego vehicle starts overtaking it acquires new information about incoming vehicles and lead vehicles. Based on the newly acquired information and the associated behavior (speeding up, slowing down) the ego vehicle can make more firm decisions. 
 
 <iframe width="720" height="480" src="https://www.youtube.com/embed/ymxnOam2KLc" title="Abort Overtaking" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <div class="caption">
-    Aborting Overtaking maneuver on realising a potential danger(virtual as of now) and merging back into lane.
+    Aborting Overtaking maneuver on realizing a potential danger(virtual as of now) and merging back into lane.
 </div>
 
-Within this project, specific overtaking and aborting scenarios are meticulously outlined. The utilization of backward reachability sets and the adaptation of general sum Stackelberg games for modeling interactions between vehicles are highlighted. Furthermore, an extension to encompass multiple scenarios generalization is proposed, catering to maneuvers involving multiple surrounding vehicles and acknowledging the inherent uncertainties linked to human drivers.
+**Current Status**
 
-In essence, this project endeavors to make a substantial contribution to the refinement of AV decision-making within dynamic environments. The emphasis lies in the practical implementation of safety-infused motion planning strategies for overtaking scenarios, adapted to diverse and challenging driving situations.
+We have completed the implementation of the Motion planning stack and MPC for planning. 
+The future steps are as follows
+- Real-time optimization of MPC
+- Integration of safety monitor into MPC
+- Assessing the risk with newly acquired information for aborting overtaking.
