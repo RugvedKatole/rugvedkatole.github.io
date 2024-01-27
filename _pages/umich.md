@@ -10,9 +10,8 @@ horizontal: false
 ---
 
 ## Dear Admission Committee, 
-Welcome to my website, I have created this webpage to assess you with my Ph.D. Application, below you will find quick links to some of my relevant projects and description to my particular interests with faculty members.
+Welcome to my website, I have created this webpage to assess you with my Ph.D. Application, you will find quick links to some of my relevant projects and descriptions to my particular interests with faculty members.
 
-# Updates coming Soon, Please check in few days
 
 ### **Relevant Projects and Publications**
 <div class="projects">
@@ -61,7 +60,7 @@ Welcome to my website, I have created this webpage to assess you with my Ph.D. A
 </div>
 
 ## **My Interests with Relevant Faculty**
-Please click on the Faculty to know my interest, thoughts and possible contributing directions on their research.
+Please click on the Faculty to know my interests, thoughts and possible contributing directions on their research.
 
 <div class="projects">
 {%- if site.enable_project_categories and page.display_categories %}
