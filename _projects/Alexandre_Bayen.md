@@ -4,7 +4,7 @@ title: Prof. Alexandre Bayen
 description:
 img: assets/img/faculty/bayen.jpg
 importance: 3
-category: faculty_ucb
+category: faculty_ucbs
 ---
 
 Dear Professor,
