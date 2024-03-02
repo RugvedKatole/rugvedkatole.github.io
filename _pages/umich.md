@@ -59,8 +59,7 @@ Welcome to my website, I have created this webpage to assess you with my Ph.D. A
 {%- endif -%}
 </div>
 
-## **My Interests with Relevant Faculty**
-Please click on the Faculty to know my interests, thoughts and possible contributing directions on their research.
+
 
 <div class="projects">
 {%- if site.enable_project_categories and page.display_categories %}
