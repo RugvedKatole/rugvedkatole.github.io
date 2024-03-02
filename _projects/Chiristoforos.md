@@ -4,7 +4,7 @@ title: Prof. Christoforos Mavrogiannis
 description: Interactive robots and Social robot navigation
 img: assets/img/faculty/christoforos.jpg
 importance: 1
-category: faculty_umich
+category: faculty_umichs
 reference: [tops_IJRR]
 ---
 
