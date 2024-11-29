@@ -19,15 +19,15 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 # Hello There !
-I am a Ph.D. aspirant actively looking for a Ph.D. positon. 
-My research interests are in planning, control and decision-making for autonomous systems. The focus is on making provably safe algorithms which are able to handle the uncertainites of the world! 
+I am a Ph.D. student at The Ohio State University, working with Prof. Christopher Stewart to bridge computing and robotics for real-time robotic systems.
 
-I am currently a Research Assistant at [ARMS lab](https://www.sc.iitb.ac.in/robotics/) IIT bombay, where I am advised by [Prof. Arpita Sinha](https://sites.google.com/iitb.ac.in/arpitasinha). Here I have worked on Multi-agent patrolling, Intersection Mangement, and self-driving cars. 
+My current research focuses on generating datasets that capture the spatial and temporal characteristics of real-world environments, enabling robotic models to operate efficiently in harsh conditions while minimizing the costs of data collection and testing.
 
+Additionally, I am developing sparse data reconstruction techniques, where UAVs partially scout crop fields to collect sensor data. This data is iteratively used to predict field-wide conditions, ensuring accuracy remains above a set threshold while optimizing resource usage.
 
-I also work with [Prof. Christopher Stewart](https://web.cse.ohio-state.edu/~stewart.962/) from Ohio State University on UAV scouting for crop health predictions. The UAV partially scouts crop fields for collection of sensor data. This data is then processed by a Deep Learning model to extract and health map. Based on this map a reinforcement learning algorithms decides the scouting trajectory. I am reposible for build the Deep learning model to make it happen with highest accuracy.
+If you are interested in collaboration please send me an email on **katole\<dot>2\<at>osu\<dot>edu** 
 
-Refer to my [Projects Page](/projects) for more info. 
+My previous works can be [here](/projects). 
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
