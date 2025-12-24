@@ -1,0 +1,33 @@
+---
+const { title = "Portfolio - Your Name", description = "A modern portfolio showcasing my projects and expertise" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <meta name="generator" content={Astro.generator}>
+
+  <!-- Performance optimizations -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
+  <!-- SEO -->
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Your Name">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+
+  <title>{title}</title>
+
+  <!-- Critical CSS will be inlined by Astro -->
+</head>
+<body>
+  <slot />
+</body>
+</html>

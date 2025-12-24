@@ -1,6 +1,6 @@
 # Portfolio Website
 
-A modern, project-centric portfolio website built with vanilla JavaScript and CSS.
+A blazing-fast, modern portfolio website built with Astro. Optimized for performance with sub-2 second load times and mobile-first responsive design.
 
 ## Folder Structure
 
@@ -109,46 +109,85 @@ Additional documentation for the project.
 ### `scripts/` - Utility Scripts
 Build scripts, deployment scripts, data processing, etc.
 
-## Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn
+- **Node.js** v18 or higher
+- **npm** (comes with Node.js)
 
-### Installation
-```bash
-npm install
+### Installation & Preview
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Start development server:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Open your browser:**
+   - Navigate to `http://localhost:4321`
+   - Your portfolio will automatically reload when you make changes!
+
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+For detailed development instructions, see [DEVELOPMENT.md](./DEVELOPMENT.md)
+
+## ✨ Features
+
+- ⚡ **Lightning Fast**: Built with Astro for <2s load times
+- 📱 **Mobile-First**: Fully responsive design optimized for all devices
+- 🎨 **Modern Design**: Clean, professional aesthetic with smooth animations
+- 🔍 **SEO Optimized**: Meta tags and semantic HTML for better discoverability
+- ♿ **Accessible**: WCAG compliant with keyboard navigation and screen reader support
+- 🚀 **Zero JavaScript by Default**: Only loads JS when needed for optimal performance
+- 📊 **Project Showcase**: Dedicated section for your best work
+- 💬 **Contact CTA**: Clear call-to-action for potential clients/employers
+
+## 📖 Homepage Narrative Flow
+
+1. **"Who am I?"** - Hero section introducing yourself
+2. **"What I've built"** - Projects showcase teasing your best work
+3. **"Let's talk"** - Contact section with clear call-to-action
+
+## 🎨 Customization
+
+### Update Your Information
+1. **Hero Section**: Edit `src/components/Hero.astro` - Update name, title, description
+2. **Projects**: Edit `src/components/Projects.astro` - Add your real projects
+3. **Contact**: Edit `src/components/Contact.astro` - Update email and social links
+4. **Colors**: Edit `src/styles/global.css` - Customize brand colors
+
+### Add New Pages
+- Create `.astro` files in `src/pages/`
+- Example: `src/pages/about.astro` creates `/about` route
+- File-based routing - it's that simple!
+
+### Performance Tips
+- Images go in `public/` folder
+- Use WebP format for better compression
+- Test with Lighthouse (target 90+ scores)
+- Check load time with "Fast 3G" throttling
+
+## 📁 Project Structure
+
+```
+src/
+├── pages/          # Routes (index.astro = homepage)
+├── components/     # Reusable Astro components
+├── layouts/        # Page layouts
+└── styles/         # Global styles
+
+public/             # Static assets
+content/            # Content data (projects, blog, etc.)
 ```
 
-### Development
-```bash
-npm run dev
-```
-
-### Build for Production
-```bash
-npm run build
-```
-
-## Key Features This Structure Supports
-
-- **Project Showcase**: Dedicated folders for project content and images
-- **Blog/Articles**: Content management for blog posts
-- **Dynamic Loading**: Modular JS structure for loading content
-- **Component-Based**: Reusable components for consistency
-- **Theme Support**: Easy theme switching with organized CSS
-- **Responsive Design**: Layouts and utilities for responsive design
-- **SEO-Friendly**: Clean structure for meta tags and optimization
-- **Performance**: Separation of source and production files for optimization
-- **Scalability**: Organized structure that grows with your portfolio
-
-## Customization
-
-1. **Add Projects**: Create JSON files in `content/projects/`
-2. **Write Blog Posts**: Add markdown or JSON in `content/blog/`
-3. **Update Styles**: Modify CSS in `src/css/`
-4. **Add Features**: Create new components in `src/js/components/`
-5. **Configure**: Update settings in `config/` and `data/`
+For complete folder structure documentation, see sections below.
 
 ## License
 

@@ -13,6 +13,7 @@ public/css/*.css
 public/js/*.js
 *.min.js
 *.min.css
+.astro/
 
 # Environment variables
 .env

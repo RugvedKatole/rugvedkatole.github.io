@@ -1,0 +1,146 @@
+---
+// Hero Section - "Who am I?"
+---
+
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero__content">
+      <p class="hero__greeting">Hi, I'm</p>
+      <h1 class="hero__title">Your Name</h1>
+      <p class="hero__subtitle">Software Engineer & Problem Solver</p>
+      <p class="hero__description">
+        I build elegant solutions to complex problems. Specializing in web development,
+        system design, and creating experiences that make a difference.
+      </p>
+      <div class="hero__cta">
+        <a href="#projects" class="btn btn--primary">View My Work</a>
+        <a href="#contact" class="btn btn--secondary">Get In Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .hero__content {
+    max-width: 700px;
+  }
+
+  .hero__greeting {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    opacity: 0.95;
+  }
+
+  .hero__title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero__subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+  }
+
+  .hero__description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 600px;
+  }
+
+  .hero__cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn--primary {
+    background: white;
+    color: #667eea;
+  }
+
+  .btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn--secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+
+  .btn--secondary:hover {
+    background: white;
+    color: #667eea;
+    transform: translateY(-2px);
+  }
+
+  /* Mobile-first responsive design */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 100svh;
+    }
+
+    .hero__title {
+      font-size: 2.25rem;
+    }
+
+    .hero__subtitle {
+      font-size: 1.25rem;
+    }
+
+    .hero__description {
+      font-size: 1rem;
+    }
+
+    .hero__cta {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .hero__title {
+      font-size: 2.75rem;
+    }
+  }
+</style>

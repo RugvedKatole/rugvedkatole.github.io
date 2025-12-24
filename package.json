@@ -1,24 +1,25 @@
 {
   "name": "portfolio-website",
   "version": "1.0.0",
-  "description": "A modern, project-centric portfolio website",
-  "main": "src/js/main.js",
+  "type": "module",
+  "description": "A modern, high-performance portfolio website built with Astro",
   "scripts": {
-    "dev": "webpack serve --mode development --open",
-    "build": "webpack --mode production",
-    "watch": "webpack --watch",
-    "test": "jest",
-    "lint": "eslint src/js/**/*.js",
-    "format": "prettier --write \"src/**/*.{js,css,html}\""
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "keywords": [
     "portfolio",
     "website",
-    "javascript",
-    "css"
+    "astro",
+    "performance"
   ],
   "author": "",
   "license": "MIT",
-  "devDependencies": {},
+  "devDependencies": {
+    "astro": "^4.0.0"
+  },
   "dependencies": {}
 }
