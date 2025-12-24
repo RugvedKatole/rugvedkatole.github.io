@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
 import Hero from '../components/Hero.astro';
 import Projects from '../components/Projects.astro';
 import Contact from '../components/Contact.astro';
@@ -7,9 +8,10 @@ import '../styles/global.css';
 ---
 
 <BaseLayout
-  title="Your Name - Portfolio"
-  description="Software engineer and problem solver building elegant solutions to complex challenges."
+  title="Your Name - AI Researcher & Robotics Engineer"
+  description="Building intelligent systems that bridge AI and real-world applications. Specializing in machine learning, autonomous systems, and generative AI."
 >
+  <Navigation />
   <Hero />
   <Projects />
   <Contact />
