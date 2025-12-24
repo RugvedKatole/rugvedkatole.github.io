@@ -5,20 +5,44 @@ import '../styles/global.css';
 
 const roboticsProjects = [
   {
-    title: "Autonomous Navigation System",
-    description: "Real-time SLAM and path planning for mobile robots in dynamic environments using RGB-D sensors and LiDAR.",
-    tags: ["ROS", "Python", "C++", "SLAM"],
-    github: "#",
-    paper: "#",
-    demo: "#",
+    title: "Multi-Agent Reinforcement Learning for UAV Swarm",
+    description: "Multi-agent reinforcement learning for coordinated UAV swarm operations with collision avoidance and formation control.",
+    tags: ["Multi-Agent Systems", "Reinforcement Learning", "UAV", "Swarm Robotics"],
+    slug: "/projects/marl-uav-swarm",
+    paper: "https://arxiv.org/abs/2303.01602",
+    github: "https://github.com/rugvedkatole/MARL-UAV",
   },
   {
-    title: "Multi-Agent Coordination",
-    description: "Distributed control algorithms for coordinating teams of robots in warehouse automation scenarios.",
-    tags: ["ROS2", "Gazebo", "Multi-Agent"],
+    title: "Autonomous Overtaking with Deep RL",
+    description: "Safe and efficient autonomous overtaking maneuvers for self-driving vehicles using deep reinforcement learning with safety constraints.",
+    tags: ["Autonomous Driving", "Deep RL", "Motion Planning", "Safety"],
+    slug: "/projects/autonomous-overtaking",
+    paper: "https://arxiv.org/abs/2308.10375",
     github: "#",
-    paper: "#",
-    demo: "#",
+  },
+  {
+    title: "Swarm Synergy: Silent Community Formation",
+    description: "Communication-free coordination in multi-robot systems through local sensing and decentralized control for emergent collective behaviors.",
+    tags: ["Swarm Robotics", "Decentralized Control", "Graph Theory", "Multi-Robot Systems"],
+    slug: "/projects/swarm-synergy",
+    paper: "https://arxiv.org/abs/2303.13424",
+    github: "#",
+  },
+  {
+    title: "Autonomous Intersection Management",
+    description: "Decentralized intersection management system using vehicle-to-vehicle communication and cooperative control for collision-free crossing.",
+    tags: ["Autonomous Vehicles", "Multi-Agent Control", "Traffic Management", "V2V Communication"],
+    slug: "/projects/autonomous-intersection",
+    paper: "https://arxiv.org/abs/2303.17871",
+    github: "#",
+  },
+  {
+    title: "Priority Patrolling Algorithm",
+    description: "Efficient multi-robot patrolling using priority-based task allocation and adaptive coverage strategies with theoretical guarantees.",
+    tags: ["Multi-Robot Systems", "Task Allocation", "Coverage", "Patrolling"],
+    slug: "/projects/priority-patrolling",
+    paper: "https://arxiv.org/abs/2303.14438",
+    github: "#",
   },
 ];
 
@@ -97,7 +121,9 @@ const hybridProjects = [
         <div class="projects-grid">
           {roboticsProjects.map((project) => (
             <article class="project-card">
-              <h3 class="project-title">{project.title}</h3>
+              <h3 class="project-title">
+                <a href={project.slug} class="project-title-link">{project.title}</a>
+              </h3>
               <p class="project-description">{project.description}</p>
               <div class="project-tags">
                 {project.tags.map((tag) => (
@@ -105,14 +131,16 @@ const hybridProjects = [
                 ))}
               </div>
               <div class="project-links">
-                <a href={project.github} class="project-link">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
-                  </svg>
-                  Code
-                </a>
+                {project.github !== "#" && (
+                  <a href={project.github} class="project-link" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+                    </svg>
+                    Code
+                  </a>
+                )}
                 {project.paper !== "#" && (
-                  <a href={project.paper} class="project-link">
+                  <a href={project.paper} class="project-link" target="_blank" rel="noopener noreferrer">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                       <polyline points="14,2 14,8 20,8"></polyline>
@@ -121,7 +149,7 @@ const hybridProjects = [
                   </a>
                 )}
                 {project.demo !== "#" && (
-                  <a href={project.demo} class="project-link">
+                  <a href={project.demo} class="project-link" target="_blank" rel="noopener noreferrer">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <polygon points="5 3 19 12 5 21 5 3"></polygon>
                     </svg>
@@ -323,6 +351,16 @@ const hybridProjects = [
     font-weight: 700;
     color: var(--color-black);
     margin-bottom: 0.75rem;
+  }
+
+  .project-title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .project-title-link:hover {
+    color: var(--color-gray-600);
   }
 
   .project-description {
