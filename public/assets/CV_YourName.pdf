@@ -1,0 +1,10 @@
+PLACEHOLDER FOR CV PDF
+
+This is a placeholder file. Replace this with your actual CV PDF.
+
+To add your CV:
+1. Export your CV as a PDF file
+2. Name it something like "CV_YourName.pdf"
+3. Replace this file at: public/assets/CV_YourName.pdf
+
+The navigation menu will automatically link to this file.
