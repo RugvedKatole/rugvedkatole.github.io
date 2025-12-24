@@ -1,0 +1,24 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "A modern, project-centric portfolio website",
+  "main": "src/js/main.js",
+  "scripts": {
+    "dev": "webpack serve --mode development --open",
+    "build": "webpack --mode production",
+    "watch": "webpack --watch",
+    "test": "jest",
+    "lint": "eslint src/js/**/*.js",
+    "format": "prettier --write \"src/**/*.{js,css,html}\""
+  },
+  "keywords": [
+    "portfolio",
+    "website",
+    "javascript",
+    "css"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
