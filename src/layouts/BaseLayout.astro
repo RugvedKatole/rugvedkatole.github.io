@@ -1,5 +1,5 @@
 ---
-const { title = "Portfolio - Your Name", description = "A modern portfolio showcasing my projects and expertise" } = Astro.props;
+const { title = "Portfolio - Rugved Katole", description = "PhD candidate in Computer Science at The Ohio State University specializing in robotics, world foundation models, and Vision-Language-Action systems" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ const { title = "Portfolio - Your Name", description = "A modern portfolio showc
 
   <!-- SEO -->
   <meta name="robots" content="index, follow">
-  <meta name="author" content="Your Name">
+  <meta name="author" content="Rugved Katole">
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
@@ -24,6 +24,22 @@ const { title = "Portfolio - Your Name", description = "A modern portfolio showc
   <meta property="og:description" content={description}>
 
   <title>{title}</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GKS8H37TLM"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GKS8H37TLM');
+  </script>
+
+  <!-- Cronitor RUM Analytics -->
+  <script is:inline>
+    window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
+    cronitor('config', { clientKey: 'ed236345ca252157fb6c152074095b8b' });
+  </script>
+  <script async src="https://rum.cronitor.io/script.js"></script>
 
   <!-- Critical CSS will be inlined by Astro -->
 </head>
