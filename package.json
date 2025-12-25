@@ -19,7 +19,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "astro": "^4.0.0"
-  },
-  "dependencies": {}
+    "astro": "^4.0.0",
+    "terser": "^5.44.1"
+  }
 }
