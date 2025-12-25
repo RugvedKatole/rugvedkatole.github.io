@@ -1,8 +1,10 @@
-# Portfolio Website
+# Portfolio Website - Rugved Katole
 
-A blazing-fast, modern portfolio website built with Astro. Optimized for performance with sub-2 second load times and mobile-first responsive design.
+A blazing-fast, modern portfolio website built with Astro. Optimized for performance with sub-2 second load times, mobile-first responsive design, and automatic deployment to GitHub Pages.
 
-## Folder Structure
+**Live Site**: [https://rugvedkatole.github.io](https://rugvedkatole.github.io)
+
+## 🚀 Quick Start
 
 ```
 .
@@ -138,6 +140,22 @@ Build scripts, deployment scripts, data processing, etc.
 
 For detailed development instructions, see [DEVELOPMENT.md](./DEVELOPMENT.md)
 
+## 🌐 Deployment
+
+This website is automatically deployed to GitHub Pages using GitHub Actions.
+
+- **Automatic Deployment**: Every push to `master` branch triggers deployment
+- **Live URL**: [https://rugvedkatole.github.io](https://rugvedkatole.github.io)
+- **Status**: Check the Actions tab for deployment status
+
+For detailed deployment setup and troubleshooting, see [DEPLOYMENT.md](./DEPLOYMENT.md)
+
+### Quick Deployment Setup
+
+1. Go to **Settings** → **Pages** in your GitHub repository
+2. Under **Source**, select **GitHub Actions**
+3. Push to `master` branch - deployment happens automatically!
+
 ## ✨ Features
 
 - ⚡ **Lightning Fast**: Built with Astro for <2s load times
@@ -148,6 +166,8 @@ For detailed development instructions, see [DEVELOPMENT.md](./DEVELOPMENT.md)
 - 🚀 **Zero JavaScript by Default**: Only loads JS when needed for optimal performance
 - 📊 **Project Showcase**: Dedicated section for your best work
 - 💬 **Contact CTA**: Clear call-to-action for potential clients/employers
+- 🔄 **Auto Deploy**: GitHub Actions deployment on every push to master
+- 📊 **Analytics**: Google Analytics and Cronitor RUM integration
 
 ## 📖 Homepage Narrative Flow
 
@@ -185,10 +205,11 @@ src/
 
 public/             # Static assets
 content/            # Content data (projects, blog, etc.)
+.github/workflows/  # GitHub Actions deployment
 ```
 
-For complete folder structure documentation, see sections below.
+For complete folder structure documentation, see [Folder Structure](#folder-structure) section below.
 
-## License
+## Folder Structure
 
 MIT
