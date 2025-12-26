@@ -1,0 +1,61 @@
+---
+// Subtle AI/Robotics themed binary stream decoration
+---
+
+<div class="binary-stream" aria-hidden="true">
+  <div class="binary-column" style="--delay: 0s; --duration: 15s;">01</div>
+  <div class="binary-column" style="--delay: 2s; --duration: 12s;">10</div>
+  <div class="binary-column" style="--delay: 4s; --duration: 18s;">11</div>
+  <div class="binary-column" style="--delay: 1s; --duration: 14s;">00</div>
+  <div class="binary-column" style="--delay: 3s; --duration: 16s;">01</div>
+</div>
+
+<style>
+  .binary-stream {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0.04;
+    pointer-events: none;
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .binary-stream {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+      padding: 1rem;
+    }
+  }
+
+  .binary-column {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-black);
+    writing-mode: vertical-rl;
+    animation: float var(--duration, 15s) linear infinite;
+    animation-delay: var(--delay, 0s);
+    white-space: nowrap;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }
+</style>

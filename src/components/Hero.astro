@@ -1,0 +1,258 @@
+---
+// Hero Section - "Who am I?"
+---
+
+<section class="hero" id="hero">
+  <!-- AI-themed grid background -->
+  <div class="hero__grid" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="hero__content">
+      <p class="hero__greeting">Hi, I'm</p>
+      <h1 class="hero__title">Rugved Katole</h1>
+      <p class="hero__subtitle">
+        <span class="typing-text" id="typing-text">PhD Candidate in Computer Science</span>
+        <span class="cursor" aria-hidden="true">|</span>
+      </p>
+      <p class="hero__description">
+        Pioneering techniques in world foundation models and Vision-Language-Action systems to tackle data scarcity
+        in robotics. Building autonomous systems that make real-world impact—from precision agriculture to wildlife conservation.
+      </p>
+      <div class="hero__cta">
+        <a href="/projects" class="btn btn--primary">View My Work</a>
+        <a href="#contact" class="btn btn--secondary">Get In Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Typing animation effect for AI/tech feel
+  const texts = [
+    'PhD Candidate in Computer Science',
+    'Robotics & AI Researcher',
+    'World Foundation Models Specialist',
+    'Vision-Language-Action Systems Engineer'
+  ];
+
+  let textIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let typingSpeed = 100;
+
+  function typeText() {
+    const typingElement = document.getElementById('typing-text');
+    if (!typingElement) return;
+
+    const currentText = texts[textIndex];
+
+    if (isDeleting) {
+      typingElement.textContent = currentText.substring(0, charIndex - 1);
+      charIndex--;
+      typingSpeed = 50;
+    } else {
+      typingElement.textContent = currentText.substring(0, charIndex + 1);
+      charIndex++;
+      typingSpeed = 100;
+    }
+
+    if (!isDeleting && charIndex === currentText.length) {
+      isDeleting = true;
+      typingSpeed = 2000; // Pause at end
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      textIndex = (textIndex + 1) % texts.length;
+      typingSpeed = 500;
+    }
+
+    setTimeout(typeText, typingSpeed);
+  }
+
+  // Start typing animation
+  setTimeout(typeText, 1000);
+</script>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
+    color: var(--color-text);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* AI-themed grid background */
+  .hero__grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+    pointer-events: none;
+    animation: gridMove 20s linear infinite;
+  }
+
+  @keyframes gridMove {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(50px);
+    }
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero__content {
+    max-width: 700px;
+  }
+
+  .hero__greeting {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-light);
+  }
+
+  .hero__title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    color: var(--color-black);
+  }
+
+  .hero__subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--color-gray-700);
+    min-height: 2.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .typing-text {
+    font-family: var(--font-mono);
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.5rem;
+    background: var(--color-black);
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .hero__description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: var(--color-text-light);
+    max-width: 600px;
+  }
+
+  .hero__cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  .btn--primary {
+    background: var(--color-black);
+    color: var(--color-white);
+    border-color: var(--color-black);
+  }
+
+  .btn--primary:hover {
+    background: var(--color-gray-800);
+    border-color: var(--color-gray-800);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn--secondary {
+    background: transparent;
+    color: var(--color-black);
+    border: 2px solid var(--color-black);
+  }
+
+  .btn--secondary:hover {
+    background: var(--color-black);
+    color: var(--color-white);
+    transform: translateY(-2px);
+  }
+
+  /* Mobile-first responsive design */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 100svh;
+    }
+
+    .hero__title {
+      font-size: 2.25rem;
+    }
+
+    .hero__subtitle {
+      font-size: 1.25rem;
+    }
+
+    .hero__description {
+      font-size: 1rem;
+    }
+
+    .hero__cta {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    .cursor {
+      height: 1.25rem;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .hero__title {
+      font-size: 2.75rem;
+    }
+  }
+</style>
