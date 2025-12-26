@@ -1,0 +1,1089 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import '../styles/global.css';
+---
+
+<BaseLayout
+  title="Recruiter AI Assistant - Rugved Katole"
+  description="AI-powered job fit analysis for recruiters. Assess how Rugved's expertise aligns with your role."
+>
+  <Navigation />
+
+  <main class="recruiter-chat">
+    <div class="container">
+      <!-- Header -->
+      <div class="chat-header">
+        <h1 class="chat-title">🎯 AI-Powered Candidate Fit Analysis</h1>
+        <p class="chat-subtitle">
+          Paste your job description below, and I'll analyze how my expertise in AI, robotics,
+          and autonomous systems aligns with your needs.
+        </p>
+      </div>
+
+      <!-- Chat Interface -->
+      <div class="chat-container">
+        <!-- Initial Input Section -->
+        <div id="initial-section" class="initial-section">
+          <div class="input-card">
+            <label for="job-description" class="input-label">
+              <span class="label-icon">📋</span>
+              Job Description
+            </label>
+            <textarea
+              id="job-description"
+              class="job-input"
+              placeholder="Paste the complete job description here, or upload a PDF..."
+              rows="12"
+            ></textarea>
+
+            <div class="file-upload">
+              <input type="file" id="file-upload" accept=".pdf,.txt,.doc,.docx" hidden />
+              <label for="file-upload" class="file-upload-label">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                Or upload PDF/document
+              </label>
+            </div>
+
+            <button id="analyze-btn" class="btn-analyze">
+              <span class="btn-text">Analyze Fit</span>
+              <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Chat Messages Section -->
+        <div id="chat-section" class="chat-section hidden">
+          <div class="messages-container" id="messages"></div>
+
+          <!-- Follow-up Input -->
+          <div class="follow-up-input">
+            <input
+              type="text"
+              id="follow-up"
+              class="follow-up-field"
+              placeholder="Ask a follow-up question..."
+            />
+            <button id="send-btn" class="btn-send">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Analysis Results Section -->
+        <div id="results-section" class="results-section hidden">
+          <!-- Fit Score -->
+          <div class="fit-score-card">
+            <h3 class="score-title">Overall Fit Score</h3>
+            <div class="score-circle">
+              <svg class="score-svg" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="90" class="score-bg"></circle>
+                <circle id="score-circle" cx="100" cy="100" r="90" class="score-fill"></circle>
+              </svg>
+              <div class="score-value">
+                <span id="score-number" class="score-number">0</span>
+                <span class="score-percent">%</span>
+              </div>
+            </div>
+            <p id="score-description" class="score-description"></p>
+          </div>
+
+          <!-- Skills Match Radar Chart -->
+          <div class="radar-card">
+            <h3 class="card-title">Skills Alignment</h3>
+            <canvas id="skills-radar" width="400" height="400"></canvas>
+          </div>
+
+          <!-- Detailed Analysis -->
+          <div class="analysis-card">
+            <h3 class="card-title">📊 Detailed Analysis</h3>
+            <div id="analysis-content"></div>
+          </div>
+
+          <!-- Exit CTAs -->
+          <div class="exit-ctas">
+            <h3 class="cta-title">Next Steps</h3>
+            <div class="cta-grid">
+              <a href="#" id="download-resume" class="cta-card">
+                <div class="cta-icon">📄</div>
+                <div class="cta-text">
+                  <h4>Download Tailored Resume</h4>
+                  <p>Customized for this role</p>
+                </div>
+              </a>
+              <a href="mailto:katole.2@buckeyemail.osu.edu?subject=Interview Request" class="cta-card">
+                <div class="cta-icon">📅</div>
+                <div class="cta-text">
+                  <h4>Schedule Interview</h4>
+                  <p>Let's discuss further</p>
+                </div>
+              </a>
+              <a href="https://www.linkedin.com/in/rugved-katole/" target="_blank" class="cta-card">
+                <div class="cta-icon">💼</div>
+                <div class="cta-text">
+                  <h4>Connect on LinkedIn</h4>
+                  <p>Professional network</p>
+                </div>
+              </a>
+            </div>
+
+            <!-- Email Capture (Optional) -->
+            <div class="email-capture">
+              <p class="capture-text">Want a copy of this analysis sent to you?</p>
+              <div class="capture-form">
+                <input type="email" id="recruiter-email" placeholder="your.email@company.com" />
+                <button id="send-analysis-btn" class="btn-send-analysis">Send Analysis</button>
+              </div>
+              <p class="privacy-note">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                Your data is kept private and never shared
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- API Configuration Notice -->
+      <div class="config-notice">
+        <p>
+          <strong>Note:</strong> This feature requires backend configuration.
+          <a href="#setup-instructions">View setup instructions</a>
+        </p>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  // Import profile data
+  import profileData from '../data/profile.json';
+
+  // State management
+  let conversationHistory: Array<{ role: string; content: string }> = [];
+  let currentAnalysis: any = null;
+
+  // DOM elements
+  const initialSection = document.getElementById('initial-section');
+  const chatSection = document.getElementById('chat-section');
+  const resultsSection = document.getElementById('results-section');
+  const jobDescriptionInput = document.getElementById('job-description') as HTMLTextAreaElement;
+  const analyzeBtn = document.getElementById('analyze-btn');
+  const messagesContainer = document.getElementById('messages');
+  const followUpInput = document.getElementById('follow-up') as HTMLInputElement;
+  const sendBtn = document.getElementById('send-btn');
+  const fileUpload = document.getElementById('file-upload') as HTMLInputElement;
+
+  // File upload handler
+  fileUpload?.addEventListener('change', async (e) => {
+    const file = (e.target as HTMLInputElement).files?.[0];
+    if (!file) return;
+
+    // For now, just show filename - full PDF parsing requires backend
+    const fileName = file.name;
+    jobDescriptionInput.value = `[File uploaded: ${fileName}]\n\nPDF parsing requires backend setup. Please paste text manually for now.`;
+  });
+
+  // Analyze button handler
+  analyzeBtn?.addEventListener('click', async () => {
+    const jobDescription = jobDescriptionInput.value.trim();
+
+    if (!jobDescription) {
+      alert('Please paste a job description first');
+      return;
+    }
+
+    // Show loading state
+    analyzeBtn.innerHTML = '<span class="spinner"></span> Analyzing...';
+    analyzeBtn.setAttribute('disabled', 'true');
+
+    try {
+      // Call API to analyze
+      await analyzeJobFit(jobDescription);
+    } catch (error) {
+      console.error('Analysis error:', error);
+      showError('Analysis failed. Please try again or check API configuration.');
+      analyzeBtn.innerHTML = '<span class="btn-text">Analyze Fit</span>';
+      analyzeBtn.removeAttribute('disabled');
+    }
+  });
+
+  // Follow-up question handler
+  sendBtn?.addEventListener('click', async () => {
+    const question = followUpInput.value.trim();
+    if (!question) return;
+
+    await sendFollowUp(question);
+    followUpInput.value = '';
+  });
+
+  followUpInput?.addEventListener('keypress', async (e) => {
+    if (e.key === 'Enter') {
+      sendBtn?.click();
+    }
+  });
+
+  // Main analysis function
+  async function analyzeJobFit(jobDescription: string) {
+    // Check if API is configured
+    const apiConfigured = await checkAPIConfiguration();
+
+    if (!apiConfigured) {
+      showDemoAnalysis(jobDescription);
+      return;
+    }
+
+    // Call backend API
+    const response = await fetch('/api/analyze-fit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        jobDescription,
+        profileData,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error('API call failed');
+    }
+
+    const analysis = await response.json();
+    displayAnalysis(analysis);
+  }
+
+  // Check if API is configured
+  async function checkAPIConfiguration(): Promise<boolean> {
+    try {
+      const response = await fetch('/api/health');
+      return response.ok;
+    } catch {
+      return false;
+    }
+  }
+
+  // Demo analysis (for when API is not configured)
+  function showDemoAnalysis(jobDescription: string) {
+    // Extract some basic keywords from JD
+    const jdLower = jobDescription.toLowerCase();
+    const keywords = {
+      robotics: jdLower.includes('robot') || jdLower.includes('autonomous'),
+      ai: jdLower.includes('ai') || jdLower.includes('machine learning') || jdLower.includes('ml'),
+      vision: jdLower.includes('vision') || jdLower.includes('computer vision'),
+      rl: jdLower.includes('reinforcement learning') || jdLower.includes('rl'),
+      multiAgent: jdLower.includes('multi-agent') || jdLower.includes('swarm'),
+      python: jdLower.includes('python'),
+      pytorch: jdLower.includes('pytorch') || jdLower.includes('tensorflow'),
+      phd: jdLower.includes('phd') || jdLower.includes('ph.d'),
+    };
+
+    // Calculate demo score
+    const matchCount = Object.values(keywords).filter(Boolean).length;
+    const score = Math.min(95, 60 + (matchCount * 5));
+
+    const analysis = {
+      score,
+      strengths: [
+        keywords.robotics && "✅ Strong robotics background with 4+ years of autonomous systems development",
+        keywords.ai && "✅ Deep expertise in AI/ML, particularly foundation models and VLA systems",
+        keywords.vision && "✅ Proven computer vision experience across multiple deployed projects",
+        keywords.rl && "✅ Published research in multi-agent RL with quantifiable impact (60% efficiency gains)",
+        keywords.multiAgent && "✅ Specialist in multi-robot coordination and swarm systems",
+        keywords.python && "✅ Proficient in Python with PyTorch/TensorFlow for production systems",
+        keywords.phd && "✅ Currently pursuing PhD in Computer Science at Ohio State University",
+      ].filter(Boolean),
+      opportunities: [
+        "⚡ Can immediately contribute to sim-to-real transfer using NVIDIA Omniverse expertise",
+        "⚡ Proven track record of delivering ROI (4.8× cost savings, 36% profit boost in AgTech)",
+        "⚡ Experience with data-efficient learning - tackles scarcity with novel approaches",
+        !keywords.multiAgent && "⚡ Bring cutting-edge multi-agent coordination expertise to scale your systems",
+      ].filter(Boolean),
+      considerations: [
+        !keywords.phd && "📌 Currently in PhD program (graduation 2029) - ideal for internships or research roles",
+        "📌 Best fit for roles emphasizing research, innovation, and real-world deployment",
+        "📌 Passion for applied AI - works best when bridging hardware and software",
+      ].filter(Boolean),
+      skillsMatch: {
+        'AI/ML': keywords.ai ? 95 : 75,
+        'Robotics': keywords.robotics ? 95 : 80,
+        'Computer Vision': keywords.vision ? 90 : 75,
+        'Multi-Agent Systems': keywords.multiAgent ? 95 : 70,
+        'Deployment': keywords.robotics ? 85 : 70,
+        'Research': keywords.phd ? 90 : 85,
+      },
+    };
+
+    displayAnalysis(analysis);
+  }
+
+  // Display analysis results
+  function displayAnalysis(analysis: any) {
+    currentAnalysis = analysis;
+
+    // Hide initial section, show results
+    initialSection?.classList.add('hidden');
+    chatSection?.classList.remove('hidden');
+    resultsSection?.classList.remove('hidden');
+
+    // Add initial AI message
+    addMessage('ai', `I've analyzed the job description against my background. Here's my assessment:`);
+
+    // Animate score
+    animateScore(analysis.score);
+
+    // Update score description
+    const scoreDesc = document.getElementById('score-description');
+    if (scoreDesc) {
+      if (analysis.score >= 80) {
+        scoreDesc.textContent = 'Excellent match! My expertise aligns strongly with this role.';
+      } else if (analysis.score >= 60) {
+        scoreDesc.textContent = 'Good fit with several key areas of alignment.';
+      } else {
+        scoreDesc.textContent = 'Moderate fit - some alignment with room for growth.';
+      }
+    }
+
+    // Display detailed analysis
+    const analysisContent = document.getElementById('analysis-content');
+    if (analysisContent) {
+      analysisContent.innerHTML = `
+        <div class="analysis-section">
+          <h4>💪 Key Strengths</h4>
+          <ul class="analysis-list">
+            ${analysis.strengths.map((s: string) => `<li>${s}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="analysis-section">
+          <h4>⚡ What I Bring</h4>
+          <ul class="analysis-list">
+            ${analysis.opportunities.map((o: string) => `<li>${o}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="analysis-section">
+          <h4>📋 Considerations</h4>
+          <ul class="analysis-list">
+            ${analysis.considerations.map((c: string) => `<li>${c}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }
+
+    // Draw radar chart
+    drawRadarChart(analysis.skillsMatch);
+
+    // Scroll to results
+    resultsSection?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Animate score circle
+  function animateScore(targetScore: number) {
+    const scoreNumber = document.getElementById('score-number');
+    const scoreCircle = document.getElementById('score-circle');
+
+    if (!scoreNumber || !scoreCircle) return;
+
+    let current = 0;
+    const duration = 2000;
+    const step = targetScore / (duration / 16);
+
+    const animate = () => {
+      current += step;
+      if (current >= targetScore) {
+        current = targetScore;
+      }
+
+      scoreNumber.textContent = Math.round(current).toString();
+
+      // Update circle (565 is circumference of r=90 circle)
+      const circumference = 2 * Math.PI * 90;
+      const offset = circumference - (current / 100) * circumference;
+      scoreCircle.style.strokeDashoffset = offset.toString();
+
+      if (current < targetScore) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    animate();
+  }
+
+  // Draw radar chart using Canvas
+  function drawRadarChart(skillsData: Record<string, number>) {
+    const canvas = document.getElementById('skills-radar') as HTMLCanvasElement;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const radius = 150;
+    const skills = Object.keys(skillsData);
+    const values = Object.values(skillsData);
+    const angleStep = (Math.PI * 2) / skills.length;
+
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw background circles
+    ctx.strokeStyle = '#e0e0e0';
+    ctx.lineWidth = 1;
+    for (let i = 1; i <= 5; i++) {
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, (radius / 5) * i, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    // Draw axes
+    ctx.strokeStyle = '#d0d0d0';
+    skills.forEach((_, i) => {
+      const angle = angleStep * i - Math.PI / 2;
+      const x = centerX + radius * Math.cos(angle);
+      const y = centerY + radius * Math.sin(angle);
+
+      ctx.beginPath();
+      ctx.moveTo(centerX, centerY);
+      ctx.lineTo(x, y);
+      ctx.stroke();
+    });
+
+    // Draw data polygon
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+    ctx.strokeStyle = '#000';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+
+    values.forEach((value, i) => {
+      const angle = angleStep * i - Math.PI / 2;
+      const r = (value / 100) * radius;
+      const x = centerX + r * Math.cos(angle);
+      const y = centerY + r * Math.sin(angle);
+
+      if (i === 0) {
+        ctx.moveTo(x, y);
+      } else {
+        ctx.lineTo(x, y);
+      }
+    });
+
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    // Draw labels
+    ctx.fillStyle = '#000';
+    ctx.font = 'bold 14px system-ui';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    skills.forEach((skill, i) => {
+      const angle = angleStep * i - Math.PI / 2;
+      const labelRadius = radius + 30;
+      const x = centerX + labelRadius * Math.cos(angle);
+      const y = centerY + labelRadius * Math.sin(angle);
+
+      ctx.fillText(skill, x, y);
+    });
+  }
+
+  // Add message to chat
+  function addMessage(role: 'ai' | 'user', content: string) {
+    if (!messagesContainer) return;
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message message-${role}`;
+    messageDiv.innerHTML = `
+      <div class="message-avatar">${role === 'ai' ? '🤖' : '👤'}</div>
+      <div class="message-content">${content}</div>
+    `;
+    messagesContainer.appendChild(messageDiv);
+    messageDiv.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Send follow-up question
+  async function sendFollowUp(question: string) {
+    addMessage('user', question);
+
+    // Demo response - in production, this would call the API
+    setTimeout(() => {
+      const responses: Record<string, string> = {
+        'experience': 'I have 4+ years of hands-on experience in robotics and AI, including real-world deployments in agricultural settings and multi-robot systems.',
+        'internship': 'Yes! I\'m available for summer internships and actively looking for opportunities to apply my research in industry settings.',
+        'publication': 'I have multiple publications including work on multi-agent RL (arXiv:2303.01602), autonomous intersection management (arXiv:2303.17871), and more. You can find them all on my publications page.',
+        'start': 'For internships, I can start as early as Summer 2025. For full-time roles, I\'d be available after completing my PhD in 2029.',
+      };
+
+      const qLower = question.toLowerCase();
+      let response = 'Great question! ';
+
+      if (qLower.includes('experience') || qLower.includes('years')) {
+        response += responses.experience;
+      } else if (qLower.includes('internship') || qLower.includes('available')) {
+        response += responses.internship;
+      } else if (qLower.includes('publication') || qLower.includes('paper')) {
+        response += responses.publication;
+      } else if (qLower.includes('start') || qLower.includes('when')) {
+        response += responses.start;
+      } else {
+        response += 'I\'d be happy to discuss this in detail. Feel free to reach out via email at katole.2@buckeyemail.osu.edu or connect on LinkedIn!';
+      }
+
+      addMessage('ai', response);
+    }, 1000);
+  }
+
+  // Show error message
+  function showError(message: string) {
+    addMessage('ai', `❌ ${message}`);
+  }
+
+  // Send analysis email
+  document.getElementById('send-analysis-btn')?.addEventListener('click', () => {
+    const emailInput = document.getElementById('recruiter-email') as HTMLInputElement;
+    const email = emailInput.value.trim();
+
+    if (!email || !email.includes('@')) {
+      alert('Please enter a valid email address');
+      return;
+    }
+
+    // In production, this would call an API to send the email
+    alert(`Analysis will be sent to ${email} (feature requires backend setup)`);
+    emailInput.value = '';
+  });
+</script>
+
+<style>
+  .recruiter-chat {
+    min-height: 100vh;
+    padding: 6rem 0 4rem;
+    background: linear-gradient(180deg, #f9f9f9 0%, #ffffff 100%);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .chat-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .chat-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-black);
+    margin-bottom: 1rem;
+  }
+
+  .chat-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .chat-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .initial-section {
+    animation: fadeIn 0.5s ease;
+  }
+
+  .input-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .input-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-black);
+  }
+
+  .label-icon {
+    font-size: 1.5rem;
+  }
+
+  .job-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-family: system-ui, -apple-system, sans-serif;
+    resize: vertical;
+    transition: border-color 0.3s;
+  }
+
+  .job-input:focus {
+    outline: none;
+    border-color: var(--color-black);
+  }
+
+  .file-upload {
+    margin: 1rem 0;
+  }
+
+  .file-upload-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: 2px dashed #d0d0d0;
+    border-radius: 0.5rem;
+    color: var(--color-text-light);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .file-upload-label:hover {
+    border-color: var(--color-black);
+    color: var(--color-black);
+  }
+
+  .btn-analyze {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.3s;
+    margin-top: 1.5rem;
+  }
+
+  .btn-analyze:hover:not([disabled]) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-analyze[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .btn-arrow {
+    transition: transform 0.3s;
+  }
+
+  .btn-analyze:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  .spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .chat-section {
+    margin-top: 2rem;
+  }
+
+  .messages-container {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .message {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    animation: slideIn 0.3s ease;
+  }
+
+  .message-avatar {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .message-content {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    flex: 1;
+    line-height: 1.6;
+  }
+
+  .message-ai .message-content {
+    background: #f0f0f0;
+  }
+
+  .message-user .message-content {
+    background: #e8e8e8;
+  }
+
+  .follow-up-input {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .follow-up-field {
+    flex: 1;
+    padding: 0.875rem 1.25rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 2rem;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+
+  .follow-up-field:focus {
+    outline: none;
+    border-color: var(--color-black);
+  }
+
+  .btn-send {
+    padding: 0.875rem 1.25rem;
+    background: var(--color-black);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn-send:hover {
+    background: var(--color-gray-800);
+    transform: scale(1.05);
+  }
+
+  .results-section {
+    margin-top: 3rem;
+    display: grid;
+    gap: 2rem;
+  }
+
+  .fit-score-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .score-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--color-black);
+  }
+
+  .score-circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .score-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  .score-bg {
+    fill: none;
+    stroke: #f0f0f0;
+    stroke-width: 12;
+  }
+
+  .score-fill {
+    fill: none;
+    stroke: #000;
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke-dasharray: 565;
+    stroke-dashoffset: 565;
+    transition: stroke-dashoffset 2s ease;
+  }
+
+  .score-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-black);
+  }
+
+  .score-percent {
+    font-size: 2rem;
+    color: var(--color-gray-600);
+  }
+
+  .score-description {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+  }
+
+  .radar-card,
+  .analysis-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--color-black);
+  }
+
+  #skills-radar {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .analysis-section {
+    margin-bottom: 2rem;
+  }
+
+  .analysis-section h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-black);
+  }
+
+  .analysis-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .analysis-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    line-height: 1.6;
+  }
+
+  .analysis-list li:last-child {
+    border-bottom: none;
+  }
+
+  .exit-ctas {
+    background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-top: 3rem;
+  }
+
+  .cta-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-black);
+  }
+
+  .cta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s;
+  }
+
+  .cta-card:hover {
+    border-color: var(--color-black);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .cta-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+  }
+
+  .cta-text h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--color-black);
+  }
+
+  .cta-text p {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    margin: 0;
+  }
+
+  .email-capture {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .capture-text {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--color-black);
+  }
+
+  .capture-form {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 500px;
+    margin: 0 auto 1rem;
+  }
+
+  .capture-form input {
+    flex: 1;
+    padding: 0.875rem 1.25rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .capture-form input:focus {
+    outline: none;
+    border-color: var(--color-black);
+  }
+
+  .btn-send-analysis {
+    padding: 0.875rem 1.5rem;
+    background: var(--color-black);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn-send-analysis:hover {
+    background: var(--color-gray-800);
+    transform: translateY(-2px);
+  }
+
+  .privacy-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    margin: 0;
+  }
+
+  .config-notice {
+    margin-top: 3rem;
+    padding: 1rem;
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 0.5rem;
+    text-align: center;
+  }
+
+  .config-notice a {
+    color: #856404;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @media (max-width: 768px) {
+    .chat-title {
+      font-size: 2rem;
+    }
+
+    .chat-subtitle {
+      font-size: 1rem;
+    }
+
+    .input-card {
+      padding: 1.5rem;
+    }
+
+    .cta-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .capture-form {
+      flex-direction: column;
+    }
+
+    .score-value {
+      font-size: 2.5rem;
+    }
+  }
+</style>

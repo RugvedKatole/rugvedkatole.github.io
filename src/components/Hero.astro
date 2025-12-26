@@ -21,6 +21,9 @@
       <div class="hero__cta">
         <a href="/projects" class="btn btn--primary">View My Work</a>
         <a href="#contact" class="btn btn--secondary">Get In Touch</a>
+        <a href="/recruiter-chat" class="btn btn--recruiter">
+          <span class="btn-icon">🎯</span> Hiring? Assess My Fit
+        </a>
       </div>
     </div>
   </div>
@@ -216,6 +219,41 @@
     background: var(--color-black);
     color: var(--color-white);
     transform: translateY(-2px);
+  }
+
+  .btn--recruiter {
+    background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+    color: var(--color-white);
+    border-color: #1a1a1a;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn--recruiter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .btn--recruiter:hover::before {
+    left: 100%;
+  }
+
+  .btn--recruiter:hover {
+    background: linear-gradient(135deg, #000000 0%, #3a3a3a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-icon {
+    display: inline-block;
+    margin-right: 0.5rem;
+    font-size: 1.1em;
   }
 
   /* Mobile-first responsive design */

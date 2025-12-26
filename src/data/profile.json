@@ -1,0 +1,351 @@
+{
+  "personal": {
+    "name": "Rugved Katole",
+    "title": "PhD Candidate in Computer Science",
+    "institution": "The Ohio State University",
+    "expectedGraduation": "2029",
+    "email": "katole.2@buckeyemail.osu.edu",
+    "linkedin": "https://www.linkedin.com/in/rugved-katole/",
+    "github": "https://github.com/rugvedkatole",
+    "website": "https://rugvedkatole.github.io"
+  },
+  "education": [
+    {
+      "degree": "PhD in Computer Science",
+      "institution": "The Ohio State University",
+      "period": "2024 - 2029 (Expected)",
+      "focus": "World Foundation Models, Vision-Language-Action Systems, Robotics"
+    },
+    {
+      "degree": "BE in Mechanical Engineering",
+      "institution": "BITS Pilani",
+      "focus": "Robotics and Control Systems"
+    }
+  ],
+  "expertise": {
+    "primary": [
+      "World Foundation Models",
+      "Vision-Language-Action (VLA) Systems",
+      "Multi-Agent Reinforcement Learning",
+      "Autonomous Navigation",
+      "Synthetic Data Generation",
+      "Digital Twins & Simulation"
+    ],
+    "domains": [
+      "Precision Agriculture",
+      "Wildlife Conservation",
+      "Autonomous Vehicles",
+      "Multi-Robot Systems",
+      "Swarm Robotics"
+    ],
+    "technical": {
+      "ai_ml": [
+        "PyTorch",
+        "TensorFlow",
+        "Diffusion Models",
+        "CNNs",
+        "Reinforcement Learning",
+        "Multi-Agent RL",
+        "Computer Vision",
+        "NLP"
+      ],
+      "robotics": [
+        "ROS 2",
+        "NVIDIA Omniverse",
+        "Motion Planning",
+        "SLAM",
+        "Depth Sensing",
+        "Autonomous Navigation",
+        "Sensor Fusion"
+      ],
+      "frameworks": [
+        "OpenCV",
+        "PCL (Point Cloud Library)",
+        "Graph Theory Algorithms",
+        "Optical Flow Estimation"
+      ],
+      "deployment": [
+        "Sim-to-Real Transfer",
+        "Field Robotics",
+        "Real-time Systems",
+        "Edge Computing"
+      ],
+      "programming": [
+        "Python",
+        "C++",
+        "CUDA",
+        "ROS",
+        "Git"
+      ]
+    }
+  },
+  "projects": [
+    {
+      "title": "Accelerative Synthetic Data Generation",
+      "category": "Generative AI",
+      "impact": {
+        "speed": "9× faster filtering",
+        "compute": "75% compute savings",
+        "generation": "6× faster video generation"
+      },
+      "technologies": ["Diffusion Models", "PyTorch", "Early Exit Pipelines"],
+      "description": "Intelligent diffusion-based filtering to detect and remove inauthentic synthetic videos with early exit diffusion pipelines.",
+      "relevance": ["Data scarcity solutions", "Compute optimization", "Video generation", "Dataset augmentation"]
+    },
+    {
+      "title": "Physics-based Digital Twin for Wildlife Monitoring",
+      "category": "GenAI + Robotics",
+      "impact": {
+        "deployment": "Reduced field deployment costs",
+        "prototyping": "Accelerated algorithm testing"
+      },
+      "technologies": ["NVIDIA Omniverse", "Physics Simulation", "Generative AI"],
+      "description": "Photorealistic simulation with generative animal behaviors, herd dynamics, and drone response testing.",
+      "relevance": ["Digital twins", "Simulation-first development", "Cost reduction", "Risk mitigation"]
+    },
+    {
+      "title": "World Foundation Models + VLA Integration",
+      "category": "GenAI + Robotics",
+      "impact": {
+        "dataEfficiency": "Minimal trajectories needed",
+        "scalability": "Enables scalable robotic learning"
+      },
+      "technologies": ["VLA Models", "World Models", "Foundation Models"],
+      "description": "Augmented real-world video datasets for VLA training, addressing data scarcity in robotics.",
+      "relevance": ["Foundation models", "Few-shot learning", "Data-efficient training", "Policy learning"]
+    },
+    {
+      "title": "Autonomous Vineyard Rover for Data Collection",
+      "category": "Robotics",
+      "impact": {
+        "navigation": "40° slip compensation",
+        "deployment": "Real field deployment"
+      },
+      "technologies": ["Autonomous Navigation", "Computer Vision", "Depth Sensing"],
+      "description": "Deployed rover with segmentation neural network and depth sensing for lane centering on uneven terrain.",
+      "relevance": ["Field robotics", "Robust navigation", "Real-world deployment", "Agriculture automation"]
+    },
+    {
+      "title": "Multi-Agent RL for Optimal Field Scouting",
+      "category": "Robotics",
+      "impact": {
+        "efficiency": "60% reduction in scouting needs",
+        "accuracy": "80% accuracy",
+        "cost": "4.8× labor cost savings",
+        "profit": "36% farmer profit boost"
+      },
+      "technologies": ["Multi-Agent RL", "CNNs", "Optimization"],
+      "description": "CNN-integrated reinforcement learning framework for heterogeneous agents in agricultural scouting.",
+      "relevance": ["Multi-agent systems", "Cost optimization", "Agricultural AI", "Real-world ROI"],
+      "publication": "https://arxiv.org/abs/2303.01602"
+    },
+    {
+      "title": "Decentralized Autonomous Intersection Management",
+      "category": "Robotics",
+      "impact": {
+        "scenarios": "255 scenarios tested",
+        "reliability": "Deadlock-free navigation",
+        "communication": "Communication-free operation"
+      },
+      "technologies": ["Graph Theory", "Motion Planning", "Autonomous Vehicles"],
+      "description": "Level 3.5 motion and behavior planning using road-marking intent detection and graph-theoretic coordination.",
+      "relevance": ["Autonomous vehicles", "Decentralized control", "Safety-critical systems", "Graph algorithms"],
+      "publication": "https://arxiv.org/abs/2303.17871"
+    },
+    {
+      "title": "Ortho-Fuse: Orthomosaic Generation for Crop Health",
+      "category": "Generative AI",
+      "impact": {
+        "efficiency": "50% image overlap vs 70-80% traditional",
+        "quality": "High-quality crop health analysis"
+      },
+      "technologies": ["Optical Flow", "Computer Vision", "Synthetic Frame Generation"],
+      "description": "Uses intermediate optical flow estimation for synthetic frame generation in orthomosaic creation from sparse aerial images.",
+      "relevance": ["Computer vision", "Agriculture tech", "Image processing", "Data efficiency"],
+      "publication": "ICPP 2025"
+    },
+    {
+      "title": "SmartWilds: Multimodal Wildlife Dataset",
+      "category": "GenAI + Robotics",
+      "impact": {
+        "privacy": "Privacy-constrained data generation",
+        "robustness": "Robust classification from scarce data"
+      },
+      "technologies": ["World Models", "Multimodal AI", "Synthetic Data"],
+      "description": "Generated synthetic multimodal dataset for wildlife behaviors using world models.",
+      "relevance": ["Dataset creation", "Privacy-preserving AI", "Multimodal learning", "Conservation tech"]
+    },
+    {
+      "title": "Priority-Balanced Patrol Planning",
+      "category": "Robotics",
+      "impact": {
+        "scalability": "Distributed algorithm",
+        "guarantees": "Finite-time visit guarantees",
+        "validation": "Sim-to-real validated"
+      },
+      "technologies": ["Multi-Robot Systems", "Graph Algorithms", "Coverage Planning"],
+      "description": "Distributed online patrol-planning algorithm with scalable trajectories balancing priority and non-priority site coverage.",
+      "relevance": ["Multi-robot coordination", "Security applications", "Coverage algorithms", "Distributed systems"],
+      "publication": "https://arxiv.org/abs/2303.14438"
+    },
+    {
+      "title": "Swarm Synergy: Communication-Free Formations",
+      "category": "Robotics",
+      "impact": {
+        "communication": "No communication required",
+        "validation": "Lab-tested and deployed"
+      },
+      "technologies": ["Swarm Robotics", "Decentralized Control", "Multi-Agent Systems"],
+      "description": "Autonomous community formations for multi-robot swarms without communication.",
+      "relevance": ["Swarm intelligence", "Decentralized control", "Fault tolerance", "Scalable coordination"],
+      "publication": "https://arxiv.org/abs/2303.13424"
+    },
+    {
+      "title": "Heterogeneous UAV Swarm for Crop Monitoring",
+      "category": "Robotics",
+      "impact": {
+        "scalability": "Multi-agent deployment",
+        "noSyntheticData": "No reliance on synthetic data"
+      },
+      "technologies": ["UAV", "Multi-Agent RL", "Swarm Coordination"],
+      "description": "Multi-agent reinforcement learning-based coordination for UAVs in detailed crop health assessment.",
+      "relevance": ["UAV systems", "Agricultural monitoring", "Multi-agent RL", "Fleet coordination"],
+      "publication": "https://arxiv.org/abs/2303.01602",
+      "github": "https://github.com/rugvedkatole/MARL-UAV"
+    }
+  ],
+  "achievements": {
+    "grants": [
+      {
+        "title": "Research Grant",
+        "amount": "$100,000",
+        "role": "Lead",
+        "description": "Spearheaded successful grant application for robotics research"
+      }
+    ],
+    "teaching": [
+      "ROS 2 course instructor",
+      "Student mentorship"
+    ],
+    "positions": [
+      {
+        "title": "Graduate Research Associate",
+        "organization": "The Ohio State University",
+        "period": "Current"
+      },
+      {
+        "title": "Research Engineer",
+        "organization": "IIT Bombay TIH Foundation",
+        "period": "Previous"
+      },
+      {
+        "title": "Research Associate",
+        "organization": "ARMS Lab",
+        "period": "Previous"
+      }
+    ]
+  },
+  "publications": [
+    {
+      "title": "Multi-Agent RL for Agricultural Scouting",
+      "venue": "arXiv",
+      "year": "2023",
+      "url": "https://arxiv.org/abs/2303.01602",
+      "impact": "60% efficiency improvement, 36% profit increase"
+    },
+    {
+      "title": "Decentralized Autonomous Intersection Management",
+      "venue": "arXiv",
+      "year": "2023",
+      "url": "https://arxiv.org/abs/2303.17871",
+      "impact": "255 scenarios, deadlock-free navigation"
+    },
+    {
+      "title": "Priority-Balanced Patrol Planning",
+      "venue": "arXiv",
+      "year": "2023",
+      "url": "https://arxiv.org/abs/2303.14438",
+      "impact": "Finite-time visit guarantees"
+    },
+    {
+      "title": "Swarm Synergy Algorithm",
+      "venue": "arXiv",
+      "year": "2023",
+      "url": "https://arxiv.org/abs/2303.13424",
+      "impact": "Communication-free formations"
+    },
+    {
+      "title": "Ortho-Fuse: Orthomosaic Generation",
+      "venue": "ICPP 2025",
+      "year": "2025",
+      "impact": "50% reduction in image overlap requirements"
+    }
+  ],
+  "strengths": {
+    "technical": [
+      "Deep expertise in world foundation models and VLA systems",
+      "Strong track record of real-world deployments (vineyard rover, UAV swarms)",
+      "Proven ability to bridge AI and hardware (4+ years experience)",
+      "Quantifiable impact across multiple domains (agriculture, wildlife, autonomous vehicles)",
+      "Published research with practical applications"
+    ],
+    "research": [
+      "Data efficiency expert - tackles scarcity with novel approaches",
+      "Sim-to-real transfer expertise (Omniverse, digital twins)",
+      "Multi-agent systems specialist (RL, swarm, coordination)",
+      "Strong foundation in both ML and classical robotics"
+    ],
+    "leadership": [
+      "$100K grant leadership",
+      "Teaching and mentorship experience",
+      "Cross-functional collaboration (hardware + AI teams)"
+    ],
+    "uniqueValue": [
+      "Rare combination: PhD-level AI + field robotics deployment",
+      "Focus on practical impact with measurable ROI (4.8× cost savings, 36% profit boost)",
+      "Experience across diverse domains shows adaptability",
+      "Publications demonstrate thought leadership"
+    ]
+  },
+  "idealRoles": {
+    "titles": [
+      "Robotics Research Scientist",
+      "AI/ML Research Engineer",
+      "Autonomous Systems Engineer",
+      "Foundation Models Researcher",
+      "Computer Vision Engineer",
+      "Multi-Agent Systems Researcher",
+      "Research Scientist - Robotics & AI"
+    ],
+    "domains": [
+      "Robotics companies (Boston Dynamics, Agility, etc.)",
+      "Autonomous vehicles (Waymo, Cruise, Aurora, etc.)",
+      "Agricultural tech (John Deere, Blue River, etc.)",
+      "AI research labs (OpenAI, Anthropic, Google DeepMind, FAIR, etc.)",
+      "Simulation & digital twins (NVIDIA, Unity, etc.)",
+      "Drone/UAV companies",
+      "Foundation model companies"
+    ],
+    "keywords": [
+      "Foundation models",
+      "Vision-Language-Action",
+      "World models",
+      "Embodied AI",
+      "Multi-agent systems",
+      "Autonomous navigation",
+      "Sim-to-real",
+      "Robotics deployment",
+      "Computer vision",
+      "Reinforcement learning",
+      "Digital twins",
+      "Synthetic data"
+    ]
+  },
+  "considerations": {
+    "earlyCareer": "Currently in PhD program (2nd year), expected graduation 2029",
+    "location": "Based at Ohio State University, open to internships and future positions",
+    "availability": "Available for summer internships and research collaborations",
+    "strengths": "Strong publication record, real-world deployment experience, quantifiable impact",
+    "growth": "Continuously expanding expertise in cutting-edge AI (foundation models, VLA systems)"
+  }
+}

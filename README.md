@@ -166,8 +166,49 @@ For detailed deployment setup and troubleshooting, see [DEPLOYMENT.md](./DEPLOYM
 - 🚀 **Zero JavaScript by Default**: Only loads JS when needed for optimal performance
 - 📊 **Project Showcase**: Dedicated section for your best work
 - 💬 **Contact CTA**: Clear call-to-action for potential clients/employers
+- 🎯 **AI Recruiter Chat**: Interactive AI assistant that analyzes job fit in real-time
 - 🔄 **Auto Deploy**: GitHub Actions deployment on every push to master
 - 📊 **Analytics**: Google Analytics and Cronitor RUM integration
+
+## 🎯 AI Recruiter Chat Feature
+
+An interactive AI-powered assistant that helps recruiters assess your fit for their roles:
+
+### What It Does
+- **Job Analysis**: Paste any job description and get instant fit analysis
+- **Smart Matching**: AI analyzes requirements against your projects, skills, and experience
+- **Quantified Insights**: Provides fit scores, skills radar charts, and detailed breakdowns
+- **Next Steps**: Includes resume download, interview scheduling, and LinkedIn CTAs
+
+### How It Works
+1. Recruiter clicks "Hiring? Assess My Fit" on homepage
+2. Pastes their job description
+3. AI analyzes fit using your profile data (`src/data/profile.json`)
+4. Displays comprehensive analysis with:
+   - Overall fit score (0-100)
+   - Key strengths and value propositions
+   - Skills alignment radar chart
+   - Considerations (timeline, location, etc.)
+   - Direct CTAs for next steps
+
+### Setup Required
+This feature requires backend configuration with an LLM API (Claude, GPT-4, Gemini, etc.).
+
+**Quick Setup:**
+1. See [RECRUITER_CHAT_SETUP.md](./RECRUITER_CHAT_SETUP.md) for detailed instructions
+2. Deploy to Vercel (recommended) or Netlify for serverless functions
+3. Set your LLM API key as environment variable
+4. Feature works in demo mode without API (basic keyword matching)
+
+**Supported LLM Providers:**
+- Anthropic Claude (recommended - best quality/cost ratio)
+- OpenAI GPT-4
+- Google Gemini
+- Meta Llama via Together AI
+
+**Cost:** ~$0.60/month for 100 recruiter chats with Claude (very affordable!)
+
+For complete setup instructions, see [RECRUITER_CHAT_SETUP.md](./RECRUITER_CHAT_SETUP.md)
 
 ## 📖 Homepage Narrative Flow
 
